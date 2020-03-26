@@ -8,16 +8,45 @@ The playbook will install the following intentionally vulnerable web application
 * OWASP WebGoat
 * Damn Vulnerable Web Application (DVWA)
 
-## Prerequisites
+**Note: your host machine needs to be either Linux or Mac OS. Windows is not supported by Ansible as a host machine.**
 
-1. [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) (>= 2.9) installed on host machine
-2. VM running either [Ubuntu Desktop](https://ubuntu.com/download/desktop) or [Ubuntu Server](https://ubuntu.com/download/server) (Minimum 1 vCPU, 2GB RAM)
+## Running in Vagrant
+
+### Prerequisites
+
+1. [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
+2. [Vagrant](https://www.vagrantup.com/downloads.html)
+
+### Running the applications
+
+Change into the `vagrant` directory, and run the `vagrant up` command.
+
+```bash
+$ cd vagrant
+$ vagrant up
+```
+
+Once provisioning has completed, the applications will then be accessible at the following URLs:
+
+|Application|Port|
+|---|---|
+|OWASP Juice Shop|http://10.10.10.10:3000|
+|OWASP WebGoat|http://10.10.10.10:3001/WebGoat|
+|DVWA|http://10.10.10.10:3002|
+
+## Manual Setup
+
+### Prerequisites
+
+1. [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) (>= 2.9) installed on host machine (`pip install --upgrade ansible`)
+2. A VM running either [Ubuntu Desktop 18.04](https://ubuntu.com/download/desktop) or [Ubuntu Server 18.04](https://ubuntu.com/download/server) (Minimum 1 vCPU, 2GB RAM)
 3. A standard user account in the VM with sudo privileges
 4. SSH access from host machine to the VM user specified in step 2 via SSK keys (e.g. `ssh-copy-id user@VM`)
+5. A basic understanding of running Ansible playbooks
 
-## Setup
+### Running the applications
 
-Once all the prerequisites are met, run the `prep.sh` script as follows:
+Run the `prep.sh` script as follows:
 
 `bash ./prep.sh <VM IP Address> <VM username>`
 
@@ -27,10 +56,12 @@ Execute the ansible playbook with the following command:
 
 `ansible-playbook -i ./inventory playbook.yml`
 
->Note: if you do not have passwordless sudo access for your VM user, add the `-K` flag to your `ansible-playbook` command to be prompted for your sudo password:
+>Note: if you do not have passwordless sudo access for your VM user, add the `-K` flag to your `ansible-playbook` command to be prompted for your sudo (become) password:
 `ansible-playbook -i ./inventory -K playbook.yml`
 
-Once the ansible play has successfully completed, all applications will be running and are accessible on the VMs IP address via the following ports:
+## Accessing the applications
+
+Once the ansible play has successfully completed, all applications will be accessible on the VMs IP address via the following URLs:
 
 |Application|Port|
 |---|---|
@@ -42,4 +73,4 @@ Once the ansible play has successfully completed, all applications will be runni
 
 Providing your attacker machine (e.g. Kali) is on the same network, you will be able to enumerate the VM and attack the applications.
 
-Happy hacking!
+Hack The Planet!
