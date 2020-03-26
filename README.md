@@ -31,6 +31,8 @@ Once provisioning has completed, visit the landing page where you can choose whi
 
 http://10.10.10.10
 
+![](./images/landing-page.png)
+
 ## Manual Setup
 
 ### Prerequisites
