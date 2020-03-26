@@ -16,6 +16,7 @@ The playbook will install the following intentionally vulnerable web application
 
 1. [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 2. [Vagrant](https://www.vagrantup.com/downloads.html)
+3. [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) (>= 2.9) installed on host machine (`pip install --upgrade ansible`)
 
 ### Running the applications
 
