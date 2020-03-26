@@ -27,13 +27,9 @@ $ cd vagrant
 $ vagrant up
 ```
 
-Once provisioning has completed, the applications will then be accessible at the following URLs:
+Once provisioning has completed, visit the landing page where you can choose which application to hack on:
 
-|Application|Port|
-|---|---|
-|OWASP Juice Shop|http://10.10.10.10:3000|
-|OWASP WebGoat|http://10.10.10.10:3001/WebGoat|
-|DVWA|http://10.10.10.10:3002|
+http://10.10.10.10
 
 ## Manual Setup
 
@@ -62,15 +58,12 @@ Execute the ansible playbook with the following command:
 
 ## Accessing the applications
 
-Once the ansible play has successfully completed, all applications will be accessible on the VMs IP address via the following URLs:
+Once the ansible play has successfully completed, visit the landing page where you can choose which application to hack on:
 
-|Application|Port|
-|---|---|
-|Juice Shop|http://ip:3000|
-|WebGoat|http://ip:3001/WebGoat|
-|DVWA|http://ip:3002|
+http://ip
 
-> Note: replace 'ip' in the above URLs with the IP address of your VM
+
+> Note: replace 'ip' in the above URL with the IP address of your VM
 
 Providing your attacker machine (e.g. Kali) is on the same network, you will be able to enumerate the VM and attack the applications.
 

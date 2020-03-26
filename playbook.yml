@@ -16,6 +16,11 @@
         - python3-pip
   roles:
     - role: crivetimihai.virtualization.docker
+  handlers:
+    - name: restart_nginx
+      service:
+        name: nginx
+        state: restarted
   tasks:
     - name: install docker python module
       shell: pip3 install docker
@@ -45,3 +50,20 @@
         state: started
         ports:
           - '3002:80'
+    - name: install nginx
+      apt:
+        name: nginx
+        state: present
+    - name: add web content
+      copy:
+        src: landing-page/
+        dest: /var/www/html/
+        owner: www-data
+        group: www-data
+        mode: 0644
+      notify:
+        - restart_nginx
+    - name: start nginx service
+      service:
+        name: nginx
+        state: started
