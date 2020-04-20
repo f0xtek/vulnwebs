@@ -17,6 +17,7 @@ The playbook will install the following intentionally vulnerable web application
 1. [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 2. [Vagrant](https://www.vagrantup.com/downloads.html)
 3. [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) (>= 2.9) installed on host machine (`pip install --upgrade ansible`)
+4. Install the [virtualization collection](https://galaxy.ansible.com/crivetimihai/virtualization) from ansible galaxy (`ansible-galaxy collection install crivetimihai.virtualization`)
 
 ### Running the applications
 
@@ -38,10 +39,11 @@ http://10.10.10.10
 ### Prerequisites
 
 1. [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) (>= 2.9) installed on host machine (`pip install --upgrade ansible`)
-2. A VM running either [Ubuntu Desktop 18.04](https://ubuntu.com/download/desktop) or [Ubuntu Server 18.04](https://ubuntu.com/download/server) (Minimum 1 vCPU, 2GB RAM)
-3. A standard user account in the VM with sudo privileges
-4. SSH access from host machine to the VM user specified in step 2 via SSK keys (e.g. `ssh-copy-id user@VM`)
-5. A basic understanding of running Ansible playbooks
+2. Install the [virtualization collection](https://galaxy.ansible.com/crivetimihai/virtualization) from ansible galaxy (`ansible-galaxy collection install crivetimihai.virtualization`)
+3. A VM running either [Ubuntu Desktop 18.04](https://ubuntu.com/download/desktop) or [Ubuntu Server 18.04](https://ubuntu.com/download/server) (Minimum 1 vCPU, 2GB RAM)
+4. A standard user account in the VM with sudo privileges
+5. SSH access from host machine to the VM user specified in step 2 via SSK keys (e.g. `ssh-copy-id user@VM`)
+6. A basic understanding of running Ansible playbooks
 
 ### Running the applications
 
